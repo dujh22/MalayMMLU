@@ -14,7 +14,6 @@
         </p>
 </h4>
 
-
 ## 简介
 
 MalayMMLU是首个针对马来语的多任务语言理解基准测试。该基准测试包括24,213个问题，覆盖了马来西亚小学（1-6年级）和中学（1-5年级）的教育水平，涵盖了5个大类下的22个学科。
@@ -23,14 +22,13 @@ MalayMMLU是首个针对马来语的多任务语言理解基准测试。该基�
 <img src="imgs/MalayMMLU.png"   width="250" >
 </p>
 
-
-| **类别**     | **学科**                                                     |
-| ------------ | ------------------------------------------------------------ |
+| **类别**     | **学科**                                                                                                                                                                                         |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **STEM**     | 计算机科学（中学）、生物学（中学）、化学（中学）、计算机素养（中学）、数学（小学、中学）、附加数学（中学）、设计与技术（小学、中学）、核心科学（小学、中学）、信息与通信技术（小学）、汽车技术（中学） |
-| **语言**     | 马来语（小学、中学）                                         |
-| **社会科学** | 地理（中学）、地方研究（小学）、历史（小学、中学）           |
-| **其他**     | 生活技能（小学、中学）、会计原理（中学）、经济学（中学）、商业（中学）、农业（中学） |
-| **人文学科** | 古兰经与圣训（中学）、伊斯兰教（小学、中学）、体育科学知识（中学） |
+| **语言**     | 马来语（小学、中学）                                                                                                                                                                                   |
+| **社会科学** | 地理（中学）、地方研究（小学）、历史（小学、中学）                                                                                                                                                     |
+| **其他**     | 生活技能（小学、中学）、会计原理（中学）、经济学（中学）、商业（中学）、农业（中学）                                                                                                                   |
+| **人文学科** | 古兰经与圣训（中学）、伊斯兰教（小学、中学）、体育科学知识（中学）                                                                                                                                     |
 
 ## 结果
 
@@ -543,7 +541,7 @@ pip install -r requirements.txt
 
 ## 评估
 
-我们在<code>scripts</code>目录中提供了示例评估脚本
+我们在` scripts `目录中提供了示例评估脚本
 
 ```
 usage: evaluate.py [-h] [--by_letter] --base_model BASE_MODEL --output_folder OUTPUT_FOLDER [--playground PLAYGROUND] [--task TASK] [--shot SHOT] [--token TOKEN]
@@ -563,8 +561,8 @@ options:
 
 #### 按第一个标记的准确性评估LLM
 
-* <code>PRED_FILE</code>：预测文件的文件名
-  * 例如，<code>"output/MalayMMLU_result_Meta-Llama-3-8B-Instruct_True_0shot.csv"</code>
+* `PRED_FILE` ：预测文件的文件名
+  * 例如，`"output/MalayMMLU_result_Meta-Llama-3-8B-Instruct_True_0shot.csv"`
 
 ```
 SHOT=0
@@ -596,7 +594,7 @@ python src/evaluate.py  --shot $SHOT True  --task=MalayMMLU \
                     --base_model=meta-llama/Meta-Llama-3-8B-Instruct  \
                     --output_folder=output/ --token $TOKEN
 
-# 计算准确性                  
+# 计算准确性                
 PRED_FILE=output/MalayMMLU_result_Meta-Llama-3-8B-Instruct_False_0shot.csv
 
 python src/calculate_accuracies.py --pred_files $PRED_FILE \
@@ -613,20 +611,20 @@ python src/calculate_accuracies.py --all --pred_dir  $PRED_DIR \
 
 #### LVLM评估
 
-步骤和用法类似于<code>evaluate_pixtral.py, evaluate_qwen_vl.py, evaluate_intern_vl.py</code>
+步骤和用法类似于`<code>`evaluate_pixtral.py, evaluate_qwen_vl.py, evaluate_intern_vl.py`</code>`
 
 #### 封闭源模型评估
 
-* <code>API_KEY</code>：OpenAI API key
+* `<code>`API_KEY`</code>`：OpenAI API key
 
 ```
 # 预测
 python src/evaluate_gpt.py --model gpt-3.5-turbo --api_key $API_KEY --shot $SHOT
 ```
 
-* 从[OpenAI平台](https://platform.openai.com/batches)下载预测文件（<code>jsonl</code>文件）
-* 按以下格式重命名文件：<code>MalayMMLU_{$MODEL}_{$SHOT}shot.jsonl</code>
-  * 例如：<code>MalayMMLU_gpt3_0shot.jsonl</code>
+* 从[OpenAI平台](https://platform.openai.com/batches)下载预测文件（`<code>`jsonl`</code>`文件）
+* 按以下格式重命名文件：`<code>`MalayMMLU_{$MODEL}_{$SHOT}shot.jsonl`</code>`
+  * 例如：`<code>`MalayMMLU_gpt3_0shot.jsonl`</code>`
 
 ```
 # 计算准确性
@@ -640,7 +638,7 @@ python src/calculate_accuracies.py --all --pred_dir  $PRED_DIR \
     --output_dir=output/ --closed
 ```
 
-步骤和用法类似于<code>evaluate_glm.py</code>
+步骤和用法类似于`<code>`evaluate_glm.py`</code>`
 
 ## 参考文献
 
@@ -656,7 +654,7 @@ python src/calculate_accuracies.py --all --pred_dir  $PRED_DIR \
 
 ## 反馈
 
-欢迎提供建议和意见（包括正面和负面）。请通过发送邮件到`cs.chan at um.edu.my`联系作者。
+欢迎提供建议和意见（包括正面和负面）。请通过发送邮件到 `cs.chan at um.edu.my`联系作者。
 
 ## 致谢
 
